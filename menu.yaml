@@ -1,0 +1,27 @@
+SHELLCONFIG : config.ini
+
+## other environment variables if you want 
+ENV :
+    TESTENV : testenv
+
+Prerequites :
+    NOTE : These are actions before Db2 warehouse installation. Run one by one if each complets successfully.   
+
+    Enable ip port forwarding : enablePortFwrd.sh
+    NFS server configuration : nfssvr.sh  
+    NFS client configuration : nfsclient.sh  
+    Create nodes file : nodeConf.sh
+
+Db2 warehouse deploy : 
+    NOTE : These are actions before Db2 warehouse deployment. Run one by one if each complets successfully. 
+
+    Db2 warehouse download : db2whDownload.sh
+    Db2 warehouse Run : db2whRun.sh
+
+Db2 warehouse maintenance : 
+    NOTE : For maintenance
+
+    Db2 warehouse stop : db2whStop.sh
+    Db2 warehouse start : db2whStart.sh
+
+
