@@ -3,7 +3,7 @@
 These are scripts originally written for creating DB2 warehouse (local) environment on IBM internal test provisioned systems.   
 Sharing these for users who are interested in automating the steps.   
 
-> Refer these for test systems only, not for production system configuration usage.   
+> Refer these for test systems only, not for production system configuration usage.  
 
 Creating the environment is not too complicated   
 but I automated as a single command for my personal usage    
