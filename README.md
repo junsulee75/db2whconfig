@@ -39,9 +39,8 @@ ssh root@xxxx1.fyre.ibm.com
 3. Download the scripts and go to the directory.   
 
 ```
-git clone https://<ibm github user id>:<ibm github token>@github.ibm.com/junsulee/db2wh_test_env
-# example : git clone https://junsulee:xxxxxxxxx@github.ibm.com/junsulee/db2wh_test_env 
-cd db2wh_test_env
+git clone https://github.com/junsulee75/db2whconfig
+cd db2whconfig
 ```
 
 > `git` command is installed in fyre VMs by default.
