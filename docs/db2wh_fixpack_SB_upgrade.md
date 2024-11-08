@@ -58,8 +58,8 @@ Informational tokens are "DB2 v11.5.7.0", "special_13745",
 Run these on all hosts.   
 
 ```sh
-export IBM_KEY="XXXX" ## Use your IBM KEY
-echo $IBM_KEY | podman login -u iamapikey --password-stdin icr.io
+export MYAPIK="XXXX" ## Use your IBM KEY
+echo $MYAPIK | podman login -u iamapikey --password-stdin icr.io
 podman pull icr.io/obs/hdm/db2wh_ee:v11.5.8.0-db2wh-linux
 ```
 

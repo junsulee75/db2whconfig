@@ -20,7 +20,7 @@ SSH_NO_BANNER="-q -o LogLevel=QUIET -o StrictHostKeyChecking=no"  # example full
 cmdRetChk(){
 	if [ $? -ne 0 ]; then
 		echo "failure. Exit.."
-        exit 1
+        exit 1 
 	else
 	    echo "success !!! "
 	fi
@@ -74,6 +74,10 @@ disp_msglvl2(){
     echo
 }
 
+print2(){
+	disp_msglvl2 "$1"
+}
+
 disp_msglvl1(){
 	echo
 	echo
@@ -83,6 +87,9 @@ disp_msglvl1(){
 	echo
 }
 
+print1(){
+	disp_msglvl1 "$1"
+}
 
 # install software if the command does not exist. This is only for the current host.   
 # For multiple hosts, I don't put a common function here yet as it's more complex.   
@@ -94,7 +101,7 @@ disp_msglvl1(){
 swCmdChk(){
 
     disp_msglvl1 "Software check and install if not exist"
-    for i in $1
+    for i in "$@"
     do
         disp_msglvl2 "Checking $i"
     	which $i
@@ -107,6 +114,11 @@ pyChk(){
     if [ $? -ne 0 ] ; then
         disp_msglvl2 "installaing python3"   
     	yum install python3 -y
+    fi
+    which pip3  # On Redhat 8.10, had to install this again. Python3 install didn add this somehow.  
+    if [ $? -ne 0 ] ; then
+        disp_msglvl2 "installaing pip3"
+        yum install python3-pip -y
     fi
     disp_msglvl2 "Python necessary library installation"    
     # need to install library even if there is existing python3   

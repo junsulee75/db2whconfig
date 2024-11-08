@@ -21,6 +21,6 @@ db2whStop(){
 }
 
 disp_msglvl1 "stop Db2wh service"
-podman exec –it Db2wh stop   # shutdown all service issueing from head node.
+podman exec –it Db2wh stop   # shutdown all service issueing from head node. JSTODO error Error: no container with name or ID "–it" found: no such container
 
 db2whStop

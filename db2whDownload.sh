@@ -12,7 +12,7 @@ setIBMKey(){
 	for HOST in $ALLHOST
 	do
 		disp_msglvl2 "Setting IBM key on $HOST...(1st test)"
-		ssh $SSH_NO_BANNER root@$HOST "echo $IBM_KEY | podman login -u iamapikey --password-stdin icr.io"
+		ssh $SSH_NO_BANNER root@$HOST "echo $MYAPIK | podman login -u iamapikey --password-stdin icr.io"
 		if [ $? -ne 0 ]; then
 			echo "failure. Exit.."
 		else
@@ -32,7 +32,7 @@ db2whDownload(){
 	for HOST in $ALLHOST
 	do
 		disp_msglvl2 "Setting IBM key on $HOST... "
-		ssh $SSH_NO_BANNER root@$HOST "echo $IBM_KEY | podman login -u iamapikey --password-stdin icr.io"
+		ssh $SSH_NO_BANNER root@$HOST "echo $MYAPIK | podman login -u iamapikey --password-stdin icr.io"
 		if [ $? -ne 0 ]; then
 			echo "failure. Exit.."
 		else

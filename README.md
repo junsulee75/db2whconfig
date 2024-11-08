@@ -2,8 +2,7 @@
 
 These are scripts originally written for creating DB2 warehouse (local) environment on IBM internal test provisioned systems.   
 Sharing these for users who are interested in automating the steps.   
-
-> Refer these for test systems only, not for production system configuration usage.  
+(Refer these for test systems only, not for production system configuration usage.)      
 
 Creating the environment is not too complicated   
 but I automated as a single command for my personal usage    
@@ -12,9 +11,9 @@ These scripts assumes the following.
 
 - Using the environment that was created in a same cluster.  
   - created 3 hosts stack.    
-  - Passworedless ssh login by root user is set already.   
+  - Passworedless ssh login by root user is set in advance among all hosts
   - hostnames convention is like xxxx1, xxxx2 and xxxx3.    
-  - Linux only      
+  - Redhat Linux only      
 
 If you want to install things manually one by one, refer the [Steps](docs/db2wh_manual_installation.md).     
 Scripts in this repoistory do all the manual steps in one go.  
@@ -39,8 +38,9 @@ ssh root@xxxx1.fyre.ibm.com
 3. Download the scripts and go to the directory.   
 
 ```
-git clone https://github.com/junsulee75/db2whconfig
-cd db2whconfig
+git clone https://<ibm github user id>:<ibm github token>@github.ibm.com/junsulee/db2wh_test_env
+# example : git clone https://junsulee:xxxxxxxxx@github.ibm.com/junsulee/db2wh_test_env 
+cd db2wh_test_env
 ```
 
 > `git` command is installed in fyre VMs by default.
@@ -48,24 +48,11 @@ cd db2whconfig
 
 
 4. Edit `config.ini` file   
-- Only thing you should set is your IBM_KEY. This IBM Cloud API key. This is necessary to download DB2wh containter images.  
-  See the file to get new key if you don't have an existing one.   
-  - Log into IBM Cloud - https://cloud.ibm.com/login. 
-  - Go to Manage > Click Access > Click IBM Cloud API keys.
-  - Then create. 
-  - Replace the value in the line of `config.ini` file.   
-
-```
-...
-IBM_KEY="XXXX"
-...
-```
-
-> On fyre system, that is all you need to set.   
 
 - The scripts expects hostnames should be like xxx1.fyre.ibm.com, xxx2.fyre.ibm.com, xxx3.fyre.ibm.com.   
   In that case, you don't need to change anything else.  
   Otherwise, you need to set hostnames manually to the varilable ALLHOST, headhost, datahost like below.  
+
 ```
 #ALLHOST="db2wh1.fyre.ibm.com db2wh2.fyre.ibm.com db2wh3.fyre.ibm.com"
 #headhost=db2wh1.fyre.ibm.com
@@ -93,7 +80,7 @@ run
 ```
 
 - While trial license should be enough for test systems, if you really need to apply a permanent license, 
-  run the steps after download the license file.   
+  run the steps.
 ```
 cp dash_c.lic /mnt/clusterfs
 podman exec -it Db2wh bash   
