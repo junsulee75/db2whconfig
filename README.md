@@ -1,4 +1,4 @@
-# DB2 Warehouse auto configuration reference script  
+# DB2 Warehouse automated installation
 
 These are scripts originally written for creating DB2 warehouse (local) environment on IBM internal test provisioned systems.   
 Sharing these for users who are interested in automating the steps.   
@@ -20,7 +20,8 @@ Scripts in this repoistory do all the manual steps in one go.
 
 ## Steps    
 
-1. Create fyre environment on the Fyre page. for example, [quickburn](https://fyre.svl.ibm.com/quick) .    
+1. Prepare the systems     
+   
 - Redhat 8.2 or later ( Tested on 8.2, 8.8 )       
 - Size : 16 GB memory ( up to 8 partitions per host.), 8 GB memory (Up to 4 partitions per host.)   
   
@@ -29,17 +30,16 @@ Scripts in this repoistory do all the manual steps in one go.
 
 => `Create Ember` , then wait until you get the mail for the completion.    
 
-2. SSH login to the 1st host.  
+1. SSH login to the 1st host.  
 
 ```
 ssh root@xxxx1.fyre.ibm.com
 ```
 
-3. Download the scripts and go to the directory.   
+3. Download the scripts or clone this repository to the 1st host.   
+   Then change to the directory.   
 
 ```
-git clone https://<ibm github user id>:<ibm github token>@github.ibm.com/junsulee/db2wh_test_env
-# example : git clone https://junsulee:xxxxxxxxx@github.ibm.com/junsulee/db2wh_test_env 
 cd db2wh_test_env
 ```
 
